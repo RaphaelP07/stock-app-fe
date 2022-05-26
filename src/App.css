@@ -51,7 +51,7 @@ body {
   margin-bottom: 5px;
 }
 
-input[type="text"], textarea {
+input, textarea {
   background-color : rgb(113, 130, 132); 
   border: none;
   border-radius: 2px;
@@ -102,4 +102,16 @@ a:link {
 a:visited {
   font-size: 14px;
   color: #7EA2AA;
+}
+
+.text-error {
+  color: #ff67a6;
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.display-none {
+  display: none;
 }

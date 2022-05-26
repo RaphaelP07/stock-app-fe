@@ -3,13 +3,14 @@ import AppReducer from "./AppReducer";
 
 // initial state
 const initialState = {
+  stocks: [],
   users: [],
-  channels: [],
-  messages: [],
-  headers:
-    localStorage.getItem("headers") === null
-      ? {}
-      : JSON.parse(localStorage.getItem("headers")),
+  wallet: [],
+  portfolio: [],
+  token:
+    localStorage.getItem("token") === null
+      ? ''
+      : JSON.parse(localStorage.getItem("token")),
 };
 
 // create context
@@ -21,16 +22,23 @@ export const GlobalProvider = ({ children, headers }) => {
   const baseURL = "http://localhost:3000";
 
   //Actions
-  
+  function setToken(token) {
+    dispatch({
+      type: "SET_TOKEN",
+      payload: token,
+    });
+  }
 
   return (
     <GlobalContext.Provider
       value={{
         users: state.users,
-        channels: state.channels,
-        headers: state.headers,
-        messages: state.messages,
-        baseURL: baseURL
+        stocks: state.stocks,
+        wallet: state.wallet,
+        token: state.token,
+        portfolio: state.portfolio,
+        baseURL: baseURL,
+        setToken
       }}
     >
       {children}

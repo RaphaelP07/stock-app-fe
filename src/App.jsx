@@ -7,6 +7,9 @@ import SignUp from "./components/SignUp";
 import Wallet from "./components/Wallet";
 
 function App() {
+  const [loggedUser, setLoggedUser] = useState("");
+  const [loggedID, setLoggedID] = useState("");
+
   return (
     <Router>
       <GlobalProvider>
@@ -14,7 +17,11 @@ function App() {
           <Route
             path="/stock-app-fe/login"
             element={
-              <Login/>
+              <Login
+                loggedUser={loggedUser}
+                setLoggedUser={(email) => setLoggedUser(email)}
+                setLoggedID={(id) => setLoggedID(id)}
+              />
             }
           />
           <Route
