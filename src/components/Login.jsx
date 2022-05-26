@@ -1,14 +1,26 @@
 import React from 'react'
-import { Link, useNavigate } from "react-router-dom";
-import { GlobalContext } from "../context/GlobalState";
+// import { Link, useNavigate } from "react-router-dom";
+// import { GlobalContext } from "../context/GlobalState";
 
 const Login = () => {
   return (
     <div className='container'>
       <div className='form-container'>
-        <p>
+        <h1 className='form-title form'>
           Login
-        </p>
+        </h1>
+        <div className="input-label form">
+          Email
+        </div>
+        <input className="input-form form" type="text" />
+        <div className="input-label form ">
+          Password
+        </div>
+        <input className="input-form form" type="text" />
+        <div className="form-btn">
+          <button className='login-btn'>Login</button>
+          <button className='signup-btn'>Sign up</button>
+        </div>
       </div>
     </div>
   )

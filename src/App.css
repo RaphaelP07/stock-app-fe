@@ -16,7 +16,7 @@ body {
   display: grid;
   place-content: center;
   height: 100vh;
-  width: 100vh;
+  width: 100vw;
 }
 
 .form-container {
@@ -26,4 +26,63 @@ body {
   border-radius: 10px;
   min-height: 40px;
   min-width: 300px;
+  text-align: left;
+  padding: 30px;
+  border-bottom: #66E1BA solid 3px;
+  border-right: #66E1BA solid 3px;
+}
+
+.form {
+  width: 100%;
+}
+
+.form-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.form-title {
+  margin-bottom: 15px
+}
+
+.input-label, 
+.input-form {
+  margin-bottom: 5px;
+}
+
+input[type="text"], textarea {
+  background-color : rgb(113, 130, 132); 
+  border: none;
+  border-radius: 2px;
+  padding: 4px;
+  color: white;
+}
+
+.login-btn {
+  width: 48.5%;
+  margin-right: 7px;
+  height: 30px;
+  border-radius: 3px;
+  border: none;
+  background-color: #b0ffe6;
+  cursor: pointer;
+}
+
+.signup-btn {
+  height: 30px;
+  width: 48.5%;
+  border-radius: 3px;
+  border: none;
+  background-color: #b0ffe6;
+  cursor: pointer;
+}
+
+.login-btn:hover,
+.signup-btn:hover {
+  background-color: #5dffcc;
+}
+
+.login-btn:active,
+.signup-btn:active {
+  background-color: #b0ffe6;
 }
