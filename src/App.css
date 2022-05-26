@@ -38,7 +38,8 @@ body {
 
 .form-btn {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 .form-title {
@@ -64,7 +65,7 @@ input[type="text"], textarea {
   height: 30px;
   border-radius: 3px;
   border: none;
-  background-color: #b0ffe6;
+  background-color: rgb(180, 216, 221);
   cursor: pointer;
 }
 
@@ -73,16 +74,32 @@ input[type="text"], textarea {
   width: 48.5%;
   border-radius: 3px;
   border: none;
-  background-color: #b0ffe6;
+  background-color: #7effd6;
   cursor: pointer;
 }
 
-.login-btn:hover,
-.signup-btn:hover {
-  background-color: #5dffcc;
+.login-btn:hover {
+  background-color: rgb(124, 156, 160);
 }
 
-.login-btn:active,
+.signup-btn:hover {
+  background-color: #25e2a6;
+}
+
+.login-btn:active {
+  background-color: rgb(145, 174, 177);
+}
+
 .signup-btn:active {
   background-color: #b0ffe6;
+}
+
+a:link {
+  font-size: 14px;
+  color: #e4fbf4;
+}
+
+a:visited {
+  font-size: 14px;
+  color: #7EA2AA;
 }
