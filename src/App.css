@@ -25,7 +25,7 @@ body {
   background-color: #405357;
   border-radius: 10px;
   min-height: 40px;
-  min-width: 300px;
+  width: 300px;
   text-align: left;
   padding: 30px;
   border-bottom: #66E1BA solid 3px;
@@ -106,6 +106,7 @@ a:visited {
 
 .text-error {
   color: #ff67a6;
+  width: fit-content
 }
 
 .visibility-hidden {

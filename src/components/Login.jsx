@@ -10,6 +10,7 @@ const Login = ({ setLoggedUser, setLoggedID }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [formError, setFormError] = useState(false);
+  const [message, setMessage] = useState('')
 
   const onChange = (e) => {
     switch (e.target.id) {
@@ -48,12 +49,8 @@ const Login = ({ setLoggedUser, setLoggedID }) => {
       .catch((error) => {
         if (error) {
           setFormError(true);
-          console.log(error)
+          setMessage(error.response.data)
         }
-        // const { full_messages, ...errors } = error.response.data.errors;
-        // Object.keys(errors).forEach((name) => {
-        //   setFormError(error.response.data.errors.full_messages[0]);
-        // });
       });
   };
 
@@ -89,7 +86,7 @@ const Login = ({ setLoggedUser, setLoggedID }) => {
             onChange={onChange}
           ></input>
           <span className={formError === false ? "display-none" : "text-error"}>
-            Incorrect email or password
+            {message}
           </span>
           <div className="form-btn">
             <button className='login-btn'>Login</button>
