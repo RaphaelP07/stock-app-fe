@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 import { useState, useContext, useEffect } from "react";
 import axios from "axios";
+import Nav from "./Nav";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -64,6 +65,7 @@ const SignUp = () => {
 
   return (
     <div className='container'>
+      <Nav />
       <form onSubmit={onSubmit} noValidate>
         <div className='form-container'>
           <h1 className='form-title form'>

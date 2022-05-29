@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { GlobalContext } from "../context/GlobalState";
 import axios from "axios";
+import Nav from "./Nav";
 
 const Wallet = () => {
   const [balance, setBalance] = useState(0)
@@ -22,7 +23,12 @@ const Wallet = () => {
   }, []);
 
   return (
-    <div>Wallet balance: ${balance}</div>
+    <div className='container'>
+      <Nav />
+      <div className="wallet-container">
+        Wallet balance: ${balance}
+      </div>
+    </div>
   )
 }
 
