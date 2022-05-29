@@ -19,6 +19,40 @@ body {
   width: 100vw;
 }
 
+.nav {
+  position: absolute;
+  background-color: #182122;
+  width: 100vw;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: #66E1BA 2px solid;
+}
+
+.nav-ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.nav-ul > li {
+  height: 45px;
+  display: grid;
+  place-items: center;
+  margin: 0 10px 0 10px
+}
+
+.auth-btn {
+  background-color: #7effd6;
+  padding: 8px;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-btn {
+  background-color: #ff67a6;
+}
+
 .form-container {
   display: grid;
   place-items: center;
@@ -82,16 +116,24 @@ input, textarea {
   background-color: rgb(124, 156, 160);
 }
 
-.signup-btn:hover {
+.signup-btn:hover, .auth-btn:hover {
   background-color: #25e2a6;
+}
+
+.logout-btn:hover {
+  background-color: #b74977;
 }
 
 .login-btn:active {
   background-color: rgb(145, 174, 177);
 }
 
-.signup-btn:active {
+.signup-btn:active, .auth-btn:active {
   background-color: #b0ffe6;
+}
+
+.logout-btn:active {
+  background-color: #ff67a6;
 }
 
 a:link {
