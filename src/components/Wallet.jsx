@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { Link, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 import axios from "axios";
 import Nav from "./Nav";
@@ -30,11 +31,21 @@ const Wallet = () => {
           </div>
         </div>
         <div className="actions-container">
-          <div className='first action'>CASH IN</div>
-          <div className='action'>CASH OUT</div>
-          <div className='action'>HISTORY</div>
-          <div className='action'>PORTFOLIO</div>
-          <div className='last action'>STOCKS</div>
+          <Link to="/stock-app-fe/wallet/cash-in" className='action link first'>
+            <div>CASH IN</div>
+          </Link>
+          <Link to="/stock-app-fe/wallet/cash-out" className='action link'>
+            <div>CASH OUT</div>
+          </Link>
+          <Link to="/stock-app-fe/wallet/history" className='action link'>
+            <div>HISTORY</div>
+          </Link>
+          <Link to="/stock-app-fe/wallet/portfolio" className='action link'>
+            <div>PORTFOLIO</div>
+          </Link>
+          <Link to="/stock-app-fe/wallet/stocks" className='action link last'>
+            <div>STOCKS</div>
+          </Link>
         </div>
       </div>
     </div>
