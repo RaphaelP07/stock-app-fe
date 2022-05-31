@@ -27,14 +27,14 @@ const Wallet = () => {
         <div className="balance-container">
           <p>WALLET BALANCE:</p>
           <div className="balance">
-            {balance === null ? 'loading...' : `$${Number.parseFloat(balance).toFixed(2)}`}
+            {balance === null ? 'loading...' : `$${Number.parseFloat(balance).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
           </div>
         </div>
         <div className="actions-container">
-          <Link to="/stock-app-fe/wallet/cash-in" className='action link first'>
+          <Link to="/stock-app-fe/wallet/cash-action" className='action link first'>
             <div>CASH IN</div>
           </Link>
-          <Link to="/stock-app-fe/wallet/cash-out" className='action link'>
+          <Link to="/stock-app-fe/wallet/cash-action" className='action link'>
             <div>CASH OUT</div>
           </Link>
           <Link to="/stock-app-fe/wallet/history" className='action link'>
