@@ -13,10 +13,6 @@ const Nav = () => {
         method: "delete",
         url: `${baseURL}/logout`,
         headers: token  
-      }).then((res) => {
-        console.log(res, 'res')
-      }).catch((err) => {
-        console.log(err, 'err')
       })
 
     navigate("/stock-app-fe/login")
