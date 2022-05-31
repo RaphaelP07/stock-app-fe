@@ -204,6 +204,11 @@ a:visited {
   color: #7EA2AA;
 }
 
+.link:link {
+  color: #070707;
+  text-decoration: none;
+}
+
 .text-error {
   color: #ff67a6;
   width: fit-content
