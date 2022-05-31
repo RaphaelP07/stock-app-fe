@@ -21,7 +21,7 @@ body {
 
 .nav {
   position: absolute;
-  background-color: #182122;
+  background-color: #0f2224;
   width: 100vw;
   height: 50px;
   display: flex;
@@ -80,6 +80,48 @@ body {
   margin-bottom: 15px
 }
 
+.wallet-container {
+  background-color: #0f2224;
+  /* background-color: #405357; */
+  width: 500px;
+  height: 325px;
+  border-radius: 15px;
+}
+
+.balance-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+}
+
+.balance {
+  font-size: 80px;
+}
+
+.actions-container {
+  background-color: #25e2a6;
+  height: 30%;
+  width: 100%;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: flex;
+}
+
+.action {
+  color: #070707;
+  border-right: #0f2224 1px solid;
+  width: 20%;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+.last {
+  border-right: none
+}
+
 .input-label, 
 .input-form {
   margin-bottom: 5px;
@@ -116,8 +158,16 @@ input, textarea {
   background-color: rgb(124, 156, 160);
 }
 
-.signup-btn:hover, .auth-btn:hover {
+.signup-btn:hover, .auth-btn:hover, .action:active {
   background-color: #25e2a6;
+}
+
+.first:active {
+  border-bottom-left-radius: 15px;
+}
+
+.last:active {
+  border-bottom-right-radius: 15px;
 }
 
 .logout-btn:hover {
@@ -128,8 +178,16 @@ input, textarea {
   background-color: rgb(145, 174, 177);
 }
 
-.signup-btn:active, .auth-btn:active {
+.signup-btn:active, .auth-btn:active, .action:hover {
   background-color: #b0ffe6;
+}
+
+.first:hover {
+  border-bottom-left-radius: 15px;
+}
+
+.last:hover {
+  border-bottom-right-radius: 15px;
 }
 
 .logout-btn:active {
