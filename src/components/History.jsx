@@ -19,34 +19,42 @@ const History = () => {
     });
   }, [])
   
-
+  const backToWallet = () => {
+    navigate('/stock-app-fe/wallet')
+  }
 
   return (
     <div>
       <Nav/>
       <div className="container">
-        History
-        <table>
-        <thead>
-          <tr className='top-row'>
-            <th>TRANSACTION</th>
-            <th>AMOUNT</th>
-          </tr>
-        </thead>
-        <tbody>
-        {history === {} ? '' :
-        history.map(transaction => 
-          <tr key={history.indexOf(transaction)} >
-            <th>
-              {transaction.action == 'buy' ? `Bought ${transaction.shares} shares of ${transaction.symbol}` : 
-                transaction.action == 'sell' ? `Sold ${transaction.shares} shares of ${transaction.symbol}` :
-                transaction.action == 'cash-in' ? 'Cash-in' : 'Cash-out'}
-            </th>
-            <th className={transaction.action == 'buy' ? 'negative' : 'positive'}>{transaction.action == 'buy' ? '-' : '+'} ${Number.parseFloat(transaction.amount).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-          </tr>
-          )}
-        </tbody>
-      </table>
+        <table className='wallet-container'>
+          <thead>
+            <tr className='top-row'>
+              <th>TRANSACTION</th>
+              <th>AMOUNT</th>
+            </tr>
+          </thead>
+          <tbody>
+          {history === {} ? '' :
+          history.map(transaction => 
+            <tr className='row' key={history.indexOf(transaction)} >
+              <th className='light'>
+                {transaction.action == 'buy' ? `Bought ${transaction.shares} shares of ${transaction.symbol}` : 
+                  transaction.action == 'sell' ? `Sold ${transaction.shares} shares of ${transaction.symbol}` :
+                  transaction.action == 'cash-in' ? 'Cash-in' : 'Cash-out'}
+              </th>
+              <th className={transaction.action == 'buy' || transaction.action == 'cash-out' ? 'negative light' : 'positive light'}>
+                {transaction.action == 'buy' || transaction.action == 'cash-out' ? '-' : '+'} ${Number.parseFloat(transaction.amount).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              </th>
+            </tr>
+            )}
+            <tr className='row'>
+              <th className='back' colspan='2' onClick={() => backToWallet()}>
+                 BACK TO WALLET
+              </th>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   )
