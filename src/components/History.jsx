@@ -4,7 +4,7 @@ import { GlobalContext } from "../context/GlobalState";
 import Nav from "./Nav";
 import axios from "axios";
 
-const History = () => {
+const History = ({ setTransactionId }) => {
   const { baseURL, token } = useContext(GlobalContext);
   const navigate = useNavigate()
   const [history, setHistory] = useState([])
@@ -12,7 +12,7 @@ const History = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `${baseURL}/wallets/2/transactions`,
+      url: `${baseURL}/wallets/${localStorage.getItem('loggedID')}/transactions`,
       headers: token,
     }).then((res) => {
       setHistory(res.data);
@@ -21,6 +21,11 @@ const History = () => {
   
   const backToWallet = () => {
     navigate('/stock-app-fe/wallet')
+  }
+
+  const goToTransaction = (id) => {
+    navigate(`/stock-app-fe/wallet/transaction/`)
+    setTransactionId(id)
   }
 
   return (
@@ -35,22 +40,28 @@ const History = () => {
             </tr>
           </thead>
           <tbody>
-          {history === {} ? '' :
-          history.map(transaction => 
-            <tr className='row' key={history.indexOf(transaction)} >
-              <th className='light'>
-                {transaction.action == 'buy' ? `Bought ${transaction.shares} shares of ${transaction.symbol}` : 
-                  transaction.action == 'sell' ? `Sold ${transaction.shares} shares of ${transaction.symbol}` :
-                  transaction.action == 'cash-in' ? 'Cash-in' : 'Cash-out'}
+            {history === [] ? 
+            <tr>
+              <th colSpan={2}>
+                No transactions to show 
               </th>
-              <th className={transaction.action == 'buy' || transaction.action == 'cash-out' ? 'negative light' : 'positive light'}>
-                {transaction.action == 'buy' || transaction.action == 'cash-out' ? '-' : '+'} ${Number.parseFloat(transaction.amount).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-              </th>
-            </tr>
-            )}
+            </tr> : 
+            history.map(transaction => 
+              <tr className='row' onClick={() => goToTransaction(transaction.id)} key={history.indexOf(transaction)} >
+                <th className='light'>
+                  {transaction.action == 'buy' ? `Bought ${transaction.shares} shares of ${transaction.symbol}` : 
+                    transaction.action == 'sell' ? `Sold ${transaction.shares} shares of ${transaction.symbol}` :
+                    transaction.action == 'cash-in' ? 'Cash-in' : 'Cash-out'}
+                </th>
+                <th className={transaction.action == 'buy' || transaction.action == 'cash-out' ? 'negative light' : 'positive light'}>
+                  {transaction.action == 'buy' || transaction.action == 'cash-out' ? '-' : '+'} ${Number.parseFloat(transaction.amount).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                </th>
+              </tr>
+              )
+            }
             <tr className='row'>
-              <th className='back' colspan='2' onClick={() => backToWallet()}>
-                 BACK TO WALLET
+              <th className='back' colSpan='2' onClick={() => backToWallet()}>
+                BACK TO WALLET
               </th>
             </tr>
           </tbody>
