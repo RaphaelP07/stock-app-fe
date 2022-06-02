@@ -4,14 +4,14 @@ import { GlobalContext } from "../context/GlobalState";
 import axios from "axios";
 import Nav from "./Nav";
 
-const Wallet = () => {
+const Wallet = ({ setAction }) => {
   const [balance, setBalance] = useState(0)
   const { baseURL, token } = useContext(GlobalContext);
 
   useEffect(() => {
     axios({
       method: "get",
-      url: `${baseURL}/wallets/2`,
+      url: `${baseURL}/wallets/${localStorage.getItem('loggedID')}`,
       headers: {
         Authorization: token.authorization
       }
@@ -31,10 +31,10 @@ const Wallet = () => {
           </div>
         </div>
         <div className="actions-container">
-          <Link to="/stock-app-fe/wallet/cash-action" className='action link first'>
+          <Link to="/stock-app-fe/wallet/cash-in" className='action link first' onClick={() => setAction('CASH-IN')}>
             <div>CASH IN</div>
           </Link>
-          <Link to="/stock-app-fe/wallet/cash-action" className='action link'>
+          <Link to="/stock-app-fe/wallet/cash-out" className='action link' onClick={() => setAction('CASH-OUT')}>
             <div>CASH OUT</div>
           </Link>
           <Link to="/stock-app-fe/wallet/history" className='action link'>
@@ -43,7 +43,7 @@ const Wallet = () => {
           <Link to="/stock-app-fe/wallet/portfolio" className='action link'>
             <div>PORTFOLIO</div>
           </Link>
-          <Link to="/stock-app-fe/wallet/stocks" className='action link last'>
+          <Link to="/stock-app-fe/stocks" className='action link last'>
             <div>STOCKS</div>
           </Link>
         </div>
