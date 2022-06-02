@@ -16,12 +16,13 @@ const Nav = () => {
       })
 
     navigate("/stock-app-fe/login")
+    localStorage.clear()
   }
 
   return (
     <div className="nav">
       <div className="nav-left">
-        <div className="logo">logo</div>
+        <div className="logo"></div>
       </div>
       <div className="nav-mid"></div>
       <div className="nav-right">
@@ -38,8 +39,10 @@ const Nav = () => {
                 <button className='auth-btn'>Login</button>
               </Link>
             }
-            {window.location.pathname === "/stock-app-fe/wallet" &&
-              <button className='auth-btn logout-btn' onClick={() => logout()}>Logout</button>
+            {window.location.pathname === "/stock-app-fe/wallet" ||
+             window.location.pathname === "/stock-app-fe/stocks" ||
+             window.location.pathname === "/stock-app-fe/wallet/history" ?
+              <button className='auth-btn logout-btn' onClick={() => logout()}>Logout</button> : ''
             }
           </li>
         </ul>
