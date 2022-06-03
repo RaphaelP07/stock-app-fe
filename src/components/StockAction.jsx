@@ -5,7 +5,7 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import Nav from "./Nav";
 
-const CashAction = ({ action }) => {
+const StockAction = ({ action, symbol }) => {
   const navigate = useNavigate();
   const { baseURL } = useContext(GlobalContext);
   const [amount, setAmount] = useState("");
@@ -42,7 +42,7 @@ const CashAction = ({ action }) => {
       <form onSubmit={onSubmit} noValidate>
         <div className='transaction-container'>
           <h1 className='form-title form'>
-            {action}
+            {action} {symbol}
           </h1>
           <div className="input-label form">
             Amount
@@ -71,4 +71,4 @@ const CashAction = ({ action }) => {
   )
 }
 
-export default CashAction
+export default StockAction
