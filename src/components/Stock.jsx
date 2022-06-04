@@ -4,7 +4,7 @@ import { GlobalContext } from "../context/GlobalState";
 import Nav from "./Nav";
 import axios from "axios";
 
-const Stock = ({ symbol, setAction, setStockInfo }) => {
+const Stock = ({ location, symbol, setAction, setStockInfo }) => {
   const { baseURL, token } = useContext(GlobalContext);
   const navigate = useNavigate()
   const [stock, setStock] = useState(null)
@@ -20,8 +20,8 @@ const Stock = ({ symbol, setAction, setStockInfo }) => {
     });
   }, [])
 
-  const backToWallet = () => {
-    navigate('/stock-app-fe/wallet')
+  const backToPrev = () => {
+    navigate(location)
   }
 
   return (
@@ -32,8 +32,15 @@ const Stock = ({ symbol, setAction, setStockInfo }) => {
           <table className='balance-container'>
             <tbody>
               <tr className='row'>
-                <th className='back stock-cell' colSpan='2' onClick={() => backToWallet()}>
-                  BACK TO WALLET
+                <th className='back stock-cell' colSpan='2' onClick={() => backToPrev()}>
+                  BACK TO {
+                    location === '/stock-app-fe/wallet/transaction/' ||
+                    location === '/stock-app-fe/wallet/portfolio' ? 
+                      location.toUpperCase().split('').slice(21, 32) :
+                    location === '/stock-app-fe/stocks' ? 
+                      location.toUpperCase().split('').slice(14) : 
+                    ''
+                  }
                 </th>
               </tr>
             {stock === null ? '' :

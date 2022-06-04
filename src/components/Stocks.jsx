@@ -4,7 +4,7 @@ import { GlobalContext } from "../context/GlobalState";
 import Nav from "./Nav";
 import axios from "axios";
 
-const Stocks = ({ setSymbol }) => {
+const Stocks = ({ setSymbol, setLocation }) => {
   const { baseURL, token } = useContext(GlobalContext);
   const navigate = useNavigate()
   const [stocks, setStocks] = useState(null)
@@ -21,6 +21,7 @@ const Stocks = ({ setSymbol }) => {
 
   const goToStock = (symbol) => {
     setSymbol(symbol)
+    setLocation(window.location.pathname)
     navigate('/stock-app-fe/stocks/stock')
   }
 

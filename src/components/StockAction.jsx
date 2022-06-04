@@ -67,7 +67,7 @@ const StockAction = ({ action, symbol, stockInfo }) => {
           </span>
           <div className="form-btn">
             <button className='login-btn'>{action}</button>
-            <Link to="/stock-app-fe/wallet">
+            <Link to="/stock-app-fe/stocks/stock">
               <button className='signup-btn'>CANCEL</button>
             </Link>
           </div>

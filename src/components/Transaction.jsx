@@ -4,7 +4,7 @@ import { GlobalContext } from "../context/GlobalState";
 import Nav from "./Nav";
 import axios from "axios";
 
-const Transaction = ({ transactionId }) => {
+const Transaction = ({ transactionId, setSymbol }) => {
   const { baseURL, token } = useContext(GlobalContext);
   const navigate = useNavigate()
   const [transaction, setTransaction] = useState(null)
@@ -18,6 +18,11 @@ const Transaction = ({ transactionId }) => {
       setTransaction(res.data);
     });
   }, [])
+
+  const goToStock = (symbol) => {
+    setSymbol(symbol)
+    navigate('/stock-app-fe/stocks/stock')
+  }
 
   const backToHistory = () => {
     navigate('/stock-app-fe/wallet/history')
@@ -67,7 +72,7 @@ const Transaction = ({ transactionId }) => {
                 {transaction.action}
               </th>
             </tr>
-            <tr className='row' >
+            <tr className='row' onClick={() => goToStock(transaction.symbol)}>
               <th className='light'>
                 SYMBOL
               </th>

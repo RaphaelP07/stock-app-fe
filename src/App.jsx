@@ -20,6 +20,7 @@ function App() {
   const [symbol, setSymbol] = useState('')
   const [action, setAction] = useState('')
   const [stockInfo, setStockInfo] = useState('')
+  const [location, setLocation] = useState('')
 
   return (
     <Router>
@@ -62,6 +63,7 @@ function App() {
             element={
               <History
               setTransactionId={(id) => setTransactionId(id)}
+              setLocation={(location) => setLocation(location)}
               />
             }/>
           <Route 
@@ -69,6 +71,8 @@ function App() {
             element={
               <Transaction
                 transactionId={transactionId}
+                setSymbol={(symbol) => setSymbol(symbol)}
+                setLocation={(location) => setLocation(location)}
               />
             }/>
           <Route 
@@ -76,7 +80,8 @@ function App() {
             element={
               <Stocks
                 setSymbol={(symbol) => setSymbol(symbol)}
-              />
+                setLocation={(location) => setLocation(location)}
+                />
             }/>
           <Route 
             path="/stock-app-fe/stocks/stock" 
@@ -85,6 +90,7 @@ function App() {
                 setAction={(action) => setAction(action)}
                 setStockInfo={(info) => setStockInfo(info)}
                 symbol={symbol}
+                location={location}
               />
             }/>
           <Route 
@@ -109,6 +115,7 @@ function App() {
             element={
               <Portfolio
                 setSymbol={(symbol) => setSymbol(symbol)}
+                setLocation={(location) => setLocation(location)}
               />
             }/>
           <Route path="/stock-app-fe/signup" element={<SignUp/>}/>

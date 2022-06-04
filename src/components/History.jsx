@@ -4,7 +4,7 @@ import { GlobalContext } from "../context/GlobalState";
 import Nav from "./Nav";
 import axios from "axios";
 
-const History = ({ setTransactionId }) => {
+const History = ({ setTransactionId, setLocation }) => {
   const { baseURL, token } = useContext(GlobalContext);
   const navigate = useNavigate()
   const [history, setHistory] = useState([])
@@ -26,6 +26,7 @@ const History = ({ setTransactionId }) => {
   const goToTransaction = (id) => {
     navigate(`/stock-app-fe/wallet/transaction/`)
     setTransactionId(id)
+    setLocation(window.location.pathname)
   }
 
   return (
