@@ -11,6 +11,7 @@ import Portfolio from "./components/Portfolio";
 import Stocks from "./components/Stocks";
 import Transaction from "./components/Transaction";
 import Stock from "./components/Stock";
+import StockAction from "./components/StockAction";
 
 function App() {
   const [loggedUser, setLoggedUser] = useState("");
@@ -18,6 +19,7 @@ function App() {
   const [transactionId, setTransactionId] = useState(0)
   const [symbol, setSymbol] = useState('')
   const [action, setAction] = useState('')
+  const [stockInfo, setStockInfo] = useState('')
 
   return (
     <Router>
@@ -80,7 +82,27 @@ function App() {
             path="/stock-app-fe/stocks/stock" 
             element={
               <Stock
+                setAction={(action) => setAction(action)}
+                setStockInfo={(info) => setStockInfo(info)}
                 symbol={symbol}
+              />
+            }/>
+          <Route 
+            path="/stock-app-fe/stocks/stock/sell" 
+            element={
+              <StockAction
+                action={action}
+                symbol={symbol}
+                stockInfo={stockInfo}
+              />
+            }/>
+          <Route 
+            path="/stock-app-fe/stocks/stock/buy" 
+            element={
+              <StockAction
+                action={action}
+                symbol={symbol}
+                stockInfo={stockInfo}
               />
             }/>
           <Route path="/stock-app-fe/wallet/portfolio" 
