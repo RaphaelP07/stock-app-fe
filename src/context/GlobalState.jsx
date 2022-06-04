@@ -3,10 +3,6 @@ import AppReducer from "./AppReducer";
 
 // initial state
 const initialState = {
-  stocks: [],
-  users: [],
-  wallet: [],
-  portfolio: [],
   token:
     localStorage.getItem("token") === null
       ? ''

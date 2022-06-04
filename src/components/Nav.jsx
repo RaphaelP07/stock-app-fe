@@ -5,7 +5,7 @@ import { useContext } from "react";
 import axios from "axios";
 
 const Nav = () => {
-  const { baseURL, token } = useContext(GlobalContext);
+  const { baseURL, token, setToken } = useContext(GlobalContext);
   const navigate = useNavigate()
 
   const logout = () => {
@@ -17,6 +17,7 @@ const Nav = () => {
 
     navigate("/stock-app-fe/login")
     localStorage.clear()
+    setToken('')
   }
 
   return (
@@ -39,10 +40,8 @@ const Nav = () => {
                 <button className='auth-btn'>Login</button>
               </Link>
             }
-            {window.location.pathname === "/stock-app-fe/wallet" ||
-             window.location.pathname === "/stock-app-fe/stocks" ||
-             window.location.pathname === "/stock-app-fe/wallet/history" ?
-              <button className='auth-btn logout-btn' onClick={() => logout()}>Logout</button> : ''
+            {token === '' ? '' :
+              <button className='auth-btn logout-btn' onClick={() => logout()}>Logout</button>
             }
           </li>
         </ul>

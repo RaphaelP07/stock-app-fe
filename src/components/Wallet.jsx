@@ -7,6 +7,13 @@ import Nav from "./Nav";
 const Wallet = ({ setAction }) => {
   const [balance, setBalance] = useState(0)
   const { baseURL, token } = useContext(GlobalContext);
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (token === '') {
+      navigate("/stock-app-fe/login")
+    }
+  }, [])
 
   useEffect(() => {
     axios({
@@ -19,6 +26,7 @@ const Wallet = ({ setAction }) => {
       setBalance(res.data.balance)
     });
   }, []);
+
 
   return (
     <div className='container'>
