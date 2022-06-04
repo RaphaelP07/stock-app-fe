@@ -4,7 +4,7 @@ import AppReducer from "./AppReducer";
 // initial state
 const initialState = {
   token:
-    localStorage.getItem("token") === null
+    localStorage.getItem("headers") === null
       ? ''
       : JSON.parse(localStorage.getItem("token")),
 };

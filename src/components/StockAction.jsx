@@ -24,12 +24,13 @@ const StockAction = ({ action, symbol, stockInfo }) => {
     e.preventDefault();
 
     axios
-      .post(`${baseURL}/wallets/${localStorage.getItem('loggedID')}/${action.toLowerCase()}/${shares}`)
+      .post(`${baseURL}/wallets/${localStorage.getItem('loggedID')}/transactions/${action.toLowerCase()}/${symbol.toLowerCase()}/${shares}`)
       .then((res) => {
         navigate("/stock-app-fe/wallet");
       })
       .catch((error) => {
         if (error) {
+          console.log(error)
           setFormError(true);
           setMessage(error.response.data)
         }

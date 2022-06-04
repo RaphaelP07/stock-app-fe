@@ -10,23 +10,20 @@ const Wallet = ({ setAction }) => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (token === '') {
+    if (localStorage.getItem("headers") === null) {
       navigate("/stock-app-fe/login")
-    }
-  }, [])
+    } else
 
-  useEffect(() => {
     axios({
       method: "get",
       url: `${baseURL}/wallets/${localStorage.getItem('loggedID')}`,
       headers: {
-        Authorization: token.authorization
+        Authorization: localStorage.getItem("headers")
       }
     }).then((res) => {
       setBalance(res.data.balance)
     });
-  }, []);
-
+  }, [])
 
   return (
     <div className='container'>

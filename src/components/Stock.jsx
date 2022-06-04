@@ -32,7 +32,7 @@ const Stock = ({ location, symbol, setAction, setStockInfo }) => {
           <table className='balance-container'>
             <tbody>
               <tr className='row'>
-                <th className='back stock-cell' colSpan='2' onClick={() => backToPrev()}>
+                <th className='back stock-cell' colSpan={2} onClick={() => backToPrev()}>
                   BACK TO {
                     location === '/stock-app-fe/wallet/transaction/' ||
                     location === '/stock-app-fe/wallet/portfolio' ? 
@@ -43,7 +43,12 @@ const Stock = ({ location, symbol, setAction, setStockInfo }) => {
                   }
                 </th>
               </tr>
-            {stock === null ? '' :
+            {stock === null ? 
+            <tr className='row'>
+              <th className='light' colSpan={2}>
+                'loading stock'
+              </th>
+            </tr> :
             <>
               <tr className='row' >
                 <th className='light'>
