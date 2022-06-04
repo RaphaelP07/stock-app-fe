@@ -48,7 +48,7 @@ const Portfolio = ({ setSymbol, setLocation }) => {
               </th>
             </tr> : 
             portfolio.map(stock => 
-              <tr className='row' onClick={() => goToStock(stock.symbol)} >
+              <tr className='row' onClick={() => goToStock(stock.symbol)} key={portfolio.indexOf(stock)}>
                 <th className='light'>
                   {stock.symbol}
                 </th>
