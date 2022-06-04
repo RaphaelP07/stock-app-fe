@@ -4,7 +4,7 @@ import { GlobalContext } from "../context/GlobalState";
 import Nav from "./Nav";
 import axios from "axios";
 
-const Stock = ({ symbol }) => {
+const Stock = ({ symbol, setAction, setStockInfo }) => {
   const { baseURL, token } = useContext(GlobalContext);
   const navigate = useNavigate()
   const [stock, setStock] = useState(null)
@@ -16,6 +16,7 @@ const Stock = ({ symbol }) => {
       headers: token,
     }).then((res) => {
       setStock(res.data);
+      setStockInfo(res.data)
     });
   }, [])
 
@@ -66,10 +67,10 @@ const Stock = ({ symbol }) => {
             </tbody>
           </table>
           <div className='actions-container'>
-            <Link to="/stock-app-fe/wallet/cash-in" className='action link first buy-sell'>
+            <Link to="/stock-app-fe/stocks/stock/buy" className='action link first buy-sell' onClick={() => setAction('BUY')}>
               <div>BUY</div>
             </Link>
-            <Link to="/stock-app-fe/wallet/cash-out" className='action link last buy-sell'>
+            <Link to="/stock-app-fe/stocks/stock/sell" className='action link last buy-sell' onClick={() => setAction('SELL')}>
               <div>SELL</div>
             </Link>
           </div>

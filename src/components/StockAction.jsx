@@ -5,17 +5,17 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import Nav from "./Nav";
 
-const StockAction = ({ action, symbol }) => {
+const StockAction = ({ action, symbol, stockInfo }) => {
   const navigate = useNavigate();
   const { baseURL } = useContext(GlobalContext);
-  const [amount, setAmount] = useState("");
+  const [shares, setShares] = useState("");
   const [formError, setFormError] = useState(false);
   const [message, setMessage] = useState('')
 
   const onChange = (e) => {
     switch (e.target.id) {
-      case "amount":
-        setAmount(e.target.value);
+      case "shares":
+        setShares(e.target.value);
         break;
     }
   };
@@ -24,7 +24,7 @@ const StockAction = ({ action, symbol }) => {
     e.preventDefault();
 
     axios
-      .post(`${baseURL}/wallets/${localStorage.getItem('loggedID')}/${action.toLowerCase()}/${amount}`)
+      .post(`${baseURL}/wallets/${localStorage.getItem('loggedID')}/${action.toLowerCase()}/${shares}`)
       .then((res) => {
         navigate("/stock-app-fe/wallet");
       })
@@ -45,17 +45,23 @@ const StockAction = ({ action, symbol }) => {
             {action} {symbol}
           </h1>
           <div className="input-label form">
-            Amount
+            Price: ${Number.parseFloat(stockInfo.latestPrice).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </div>
-          <input
-            required
-            className="input-form form"
-            type="amount"
-            id="amount"
-            name="amount"
-            value={amount}
-            onChange={onChange}
-          ></input>
+          <div className="flex">
+            <div className="input-label form">
+              Shares:
+            </div>
+            <input
+              required
+              className="input-form form"
+              type="shares"
+              id="shares"
+              name="shares"
+              value={shares}
+              onChange={onChange}
+            ></input>
+          </div>
+          <div>Total: ${Number.parseFloat(shares*stockInfo.latestPrice).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
           <span className={formError === false ? "display-none" : "text-error"}>
             {message}
           </span>
