@@ -45,7 +45,7 @@ const Login = ({ setLoggedUser, setLoggedID }) => {
         localStorage.setItem("loggedID", id);
         localStorage.setItem("loggedUser", email);
         localStorage.setItem("headers", JSON.stringify(token));
-        navigate("/stock-app-fe/wallet");
+        navigate("/wallet");
       })
       .catch((error) => {
         if (error) {
@@ -92,7 +92,7 @@ const Login = ({ setLoggedUser, setLoggedID }) => {
           </span>
           <div className="form-btn">
             <button className='login-btn'>Login</button>
-            <Link to="/stock-app-fe/signup">
+            <Link to="/signup">
               <button className='signup-btn'>Sign up</button>
             </Link>
           </div>

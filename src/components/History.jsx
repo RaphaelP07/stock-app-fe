@@ -20,11 +20,11 @@ const History = ({ setTransactionId, setLocation }) => {
   }, [])
   
   const backToWallet = () => {
-    navigate('/stock-app-fe/wallet')
+    navigate('/wallet')
   }
 
   const goToTransaction = (id) => {
-    navigate(`/stock-app-fe/wallet/transaction/`)
+    navigate(`/wallet/transaction`)
     setTransactionId(id)
     setLocation(window.location.pathname)
   }

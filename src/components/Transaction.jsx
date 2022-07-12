@@ -21,11 +21,11 @@ const Transaction = ({ transactionId, setSymbol }) => {
 
   const goToStock = (symbol) => {
     setSymbol(symbol)
-    navigate('/stock-app-fe/stocks/stock')
+    navigate('/stocks/stock')
   }
 
   const backToHistory = () => {
-    navigate('/stock-app-fe/wallet/history')
+    navigate('/wallet/history')
   }
 
   return (

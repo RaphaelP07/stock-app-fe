@@ -53,7 +53,7 @@ const SignUp = () => {
       })
       .then((res) => {
         // console.log(res.data.status.message)
-        navigate("/stock-app-fe/login");
+        navigate("/login");
       })
       .catch((error) => {
         if (error) {
@@ -114,7 +114,7 @@ const SignUp = () => {
             <button className='signup-btn'>Sign up</button>
           </div>
           <p className='auth-link form'>
-            <Link to="/stock-app-fe/login"> Already have an account? </Link>
+            <Link to="/login"> Already have an account? </Link>
           </p>
         </div>
       </form>

@@ -22,11 +22,11 @@ const Stocks = ({ setSymbol, setLocation }) => {
   const goToStock = (symbol) => {
     setSymbol(symbol)
     setLocation(window.location.pathname)
-    navigate('/stock-app-fe/stocks/stock')
+    navigate('/stocks/stock')
   }
 
   const backToWallet = () => {
-    navigate('/stock-app-fe/wallet')
+    navigate('/wallet')
   }
 
   return (

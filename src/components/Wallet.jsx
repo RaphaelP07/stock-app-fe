@@ -11,7 +11,7 @@ const Wallet = ({ setAction }) => {
 
   useEffect(() => {
     if (localStorage.getItem("headers") === null) {
-      navigate("/stock-app-fe/login")
+      navigate("/login")
     } else
 
     axios({
@@ -36,19 +36,19 @@ const Wallet = ({ setAction }) => {
           </div>
         </div>
         <div className="actions-container">
-          <Link to="/stock-app-fe/wallet/cash-in" className='action link first' onClick={() => setAction('CASH-IN')}>
+          <Link to="/wallet/cash-in" className='action link first' onClick={() => setAction('CASH-IN')}>
             <div>CASH IN</div>
           </Link>
-          <Link to="/stock-app-fe/wallet/cash-out" className='action link' onClick={() => setAction('CASH-OUT')}>
+          <Link to="/wallet/cash-out" className='action link' onClick={() => setAction('CASH-OUT')}>
             <div>CASH OUT</div>
           </Link>
-          <Link to="/stock-app-fe/wallet/history" className='action link'>
+          <Link to="/wallet/history" className='action link'>
             <div>HISTORY</div>
           </Link>
-          <Link to="/stock-app-fe/wallet/portfolio" className='action link'>
+          <Link to="/wallet/portfolio" className='action link'>
             <div>PORTFOLIO</div>
           </Link>
-          <Link to="/stock-app-fe/stocks" className='action link last'>
+          <Link to="/stocks" className='action link last'>
             <div>STOCKS</div>
           </Link>
         </div>

@@ -34,10 +34,10 @@ const Stock = ({ location, symbol, setAction, setStockInfo }) => {
               <tr className='row'>
                 <th className='back stock-cell' colSpan={2} onClick={() => backToPrev()}>
                   BACK TO {
-                    location === '/stock-app-fe/wallet/transaction/' ||
-                    location === '/stock-app-fe/wallet/portfolio' ? 
+                    location === '/wallet/transaction/' ||
+                    location === '/wallet/portfolio' ? 
                       location.toUpperCase().split('').slice(21, 32) :
-                    location === '/stock-app-fe/stocks' ? 
+                    location === '/stocks' ? 
                       location.toUpperCase().split('').slice(14) : 
                     ''
                   }
@@ -79,10 +79,10 @@ const Stock = ({ location, symbol, setAction, setStockInfo }) => {
             </tbody>
           </table>
           <div className='actions-container'>
-            <Link to="/stock-app-fe/stocks/stock/buy" className='action link first buy-sell' onClick={() => setAction('BUY')}>
+            <Link to="/stocks/stock/buy" className='action link first buy-sell' onClick={() => setAction('BUY')}>
               <div>BUY</div>
             </Link>
-            <Link to="/stock-app-fe/stocks/stock/sell" className='action link last buy-sell' onClick={() => setAction('SELL')}>
+            <Link to="/stocks/stock/sell" className='action link last buy-sell' onClick={() => setAction('SELL')}>
               <div>SELL</div>
             </Link>
           </div>

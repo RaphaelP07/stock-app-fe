@@ -26,7 +26,7 @@ const CashAction = ({ action }) => {
     axios
       .post(`${baseURL}/wallets/${localStorage.getItem('loggedID')}/${action.toLowerCase()}/${amount}`)
       .then((res) => {
-        navigate("/stock-app-fe/wallet");
+        navigate("/wallet");
       })
       .catch((error) => {
         if (error) {
@@ -61,7 +61,7 @@ const CashAction = ({ action }) => {
           </span>
           <div className="form-btn">
             <button className='login-btn'>{action}</button>
-            <Link to="/stock-app-fe/wallet">
+            <Link to="/wallet">
               <button className='signup-btn'>CANCEL</button>
             </Link>
           </div>

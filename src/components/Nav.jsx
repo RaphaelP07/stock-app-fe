@@ -15,7 +15,7 @@ const Nav = () => {
         headers: token  
       })
 
-    navigate("/stock-app-fe/login")
+    navigate("/login")
     localStorage.clear()
     setToken('')
   }
@@ -30,13 +30,13 @@ const Nav = () => {
         <ul className='nav-ul'>
           <li>About</li>
           <li>
-            {window.location.pathname === "/stock-app-fe/login" &&
-              <Link to="/stock-app-fe/signup">
+            {window.location.pathname === "/login" &&
+              <Link to="/signup">
                 <button className='auth-btn'>Sign Up</button>
               </Link>
             }
-            {window.location.pathname === "/stock-app-fe/signup" &&
-              <Link to="/stock-app-fe/login">
+            {window.location.pathname === "/signup" &&
+              <Link to="/login">
                 <button className='auth-btn'>Login</button>
               </Link>
             }

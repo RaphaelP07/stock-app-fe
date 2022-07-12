@@ -27,7 +27,7 @@ function App() {
       <GlobalProvider>
         <Routes>
           <Route
-            path="/stock-app-fe/login"
+            path="/login"
             element={
               <Login
                 loggedUser={loggedUser}
@@ -37,7 +37,7 @@ function App() {
             }
           />
           <Route 
-            path="/stock-app-fe/wallet" 
+            path="/wallet" 
             element={
               <Wallet
               setAction={(action) => setAction(action)}
@@ -45,21 +45,21 @@ function App() {
             }
           />
           <Route 
-            path="/stock-app-fe/wallet/cash-in" 
+            path="/wallet/cash-in" 
             element={
               <CashAction
                 action={action}
               />}
             />
           <Route 
-            path="/stock-app-fe/wallet/cash-out" 
+            path="/wallet/cash-out" 
             element={
               <CashAction
                 action={action}
               />}
             />
           <Route 
-            path="/stock-app-fe/wallet/history" 
+            path="/wallet/history" 
             element={
               <History
               setTransactionId={(id) => setTransactionId(id)}
@@ -67,7 +67,7 @@ function App() {
               />
             }/>
           <Route 
-            path="/stock-app-fe/wallet/transaction" 
+            path="/wallet/transaction" 
             element={
               <Transaction
                 transactionId={transactionId}
@@ -76,7 +76,7 @@ function App() {
               />
             }/>
           <Route 
-            path="/stock-app-fe/stocks" 
+            path="/stocks" 
             element={
               <Stocks
                 setSymbol={(symbol) => setSymbol(symbol)}
@@ -84,7 +84,7 @@ function App() {
                 />
             }/>
           <Route 
-            path="/stock-app-fe/stocks/stock" 
+            path="/stocks/stock" 
             element={
               <Stock
                 setAction={(action) => setAction(action)}
@@ -94,7 +94,7 @@ function App() {
               />
             }/>
           <Route 
-            path="/stock-app-fe/stocks/stock/sell" 
+            path="/stocks/stock/sell" 
             element={
               <StockAction
                 action={action}
@@ -103,7 +103,7 @@ function App() {
               />
             }/>
           <Route 
-            path="/stock-app-fe/stocks/stock/buy" 
+            path="/stocks/stock/buy" 
             element={
               <StockAction
                 action={action}
@@ -111,14 +111,14 @@ function App() {
                 stockInfo={stockInfo}
               />
             }/>
-          <Route path="/stock-app-fe/wallet/portfolio" 
+          <Route path="/wallet/portfolio" 
             element={
               <Portfolio
                 setSymbol={(symbol) => setSymbol(symbol)}
                 setLocation={(location) => setLocation(location)}
               />
             }/>
-          <Route path="/stock-app-fe/signup" element={<SignUp/>}/>
+          <Route path="/signup" element={<SignUp/>}/>
         </Routes>
       </GlobalProvider>
     </Router>
