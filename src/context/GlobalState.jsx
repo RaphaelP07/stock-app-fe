@@ -15,7 +15,7 @@ export const GlobalContext = createContext(initialState);
 // provider component
 export const GlobalProvider = ({ children, headers }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
-  const baseURL = "http://localhost:3000";
+  const baseURL = "https://raphdev-stock-app-api.herokuapp.com";
 
   //Actions
   function setToken(token) {
