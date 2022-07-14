@@ -42,9 +42,9 @@ const Login = ({ setLoggedUser, setLoggedID }) => {
         setToken(token);
         setLoggedUser(email);
         setLoggedID(id);
-        localStorage.setItem("loggedID", id);
-        localStorage.setItem("loggedUser", email);
-        localStorage.setItem("headers", JSON.stringify(token));
+        localStorage.setItem("stockAppLoggedID", id);
+        localStorage.setItem("stockAppLoggedUser", email);
+        localStorage.setItem("stockAppHeaders", JSON.stringify(token));
         navigate("/wallet");
       })
       .catch((error) => {

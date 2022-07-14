@@ -12,11 +12,13 @@ const Nav = () => {
     axios({
         method: "delete",
         url: `${baseURL}/logout`,
-        headers: token  
+        headers: token
       })
 
     navigate("/login")
-    localStorage.clear()
+    localStorage.removeItem("stockAppLoggedID");
+    localStorage.removeItem("stockAppLoggedUser");
+    localStorage.removeItem("stockAppHeaders");
     setToken('')
   }
 
