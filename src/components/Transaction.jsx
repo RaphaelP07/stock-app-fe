@@ -12,7 +12,7 @@ const Transaction = ({ transactionId, setSymbol }) => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `${baseURL}/wallets/${localStorage.getItem('loggedID')}/transactions/${transactionId}`,
+      url: `${baseURL}/wallets/${localStorage.getItem('stockAppLoggedID')}/transactions/${transactionId}`,
       headers: token,
     }).then((res) => {
       setTransaction(res.data);

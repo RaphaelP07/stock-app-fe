@@ -12,7 +12,7 @@ const Portfolio = ({ setSymbol, setLocation }) => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `${baseURL}/wallets/${localStorage.getItem('loggedID')}/portfolio`,
+      url: `${baseURL}/wallets/${localStorage.getItem('stockAppLoggedID')}/portfolio`,
       headers: token,
     }).then((res) => {
       setPortfolio(res.data[0]);

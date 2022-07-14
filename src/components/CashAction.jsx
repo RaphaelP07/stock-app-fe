@@ -24,7 +24,7 @@ const CashAction = ({ action }) => {
     e.preventDefault();
 
     axios
-      .post(`${baseURL}/wallets/${localStorage.getItem('loggedID')}/${action.toLowerCase()}/${amount}`)
+      .post(`${baseURL}/wallets/${localStorage.getItem('stockAppLoggedID')}/${action.toLowerCase()}/${amount}`)
       .then((res) => {
         navigate("/wallet");
       })

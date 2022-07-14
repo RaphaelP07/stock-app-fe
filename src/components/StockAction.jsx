@@ -24,7 +24,7 @@ const StockAction = ({ action, symbol, stockInfo }) => {
     e.preventDefault();
 
     axios
-      .post(`${baseURL}/wallets/${localStorage.getItem('loggedID')}/transactions/${action.toLowerCase()}/${symbol.toLowerCase()}/${shares}`)
+      .post(`${baseURL}/wallets/${localStorage.getItem('stockAppLoggedID')}/transactions/${action.toLowerCase()}/${symbol.toLowerCase()}/${shares}`)
       .then((res) => {
         navigate("/wallet");
       })

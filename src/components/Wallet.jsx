@@ -10,15 +10,15 @@ const Wallet = ({ setAction }) => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (localStorage.getItem("headers") === null) {
+    if (localStorage.getItem("stockAppHeaders") === null) {
       navigate("/login")
     } else
 
     axios({
       method: "get",
-      url: `${baseURL}/wallets/${localStorage.getItem('loggedID')}`,
+      url: `${baseURL}/wallets/${localStorage.getItem('stockAppLoggedID')}`,
       headers: {
-        Authorization: localStorage.getItem("headers")
+        Authorization: localStorage.getItem("stockAppHeaders")
       }
     }).then((res) => {
       setBalance(res.data.balance)

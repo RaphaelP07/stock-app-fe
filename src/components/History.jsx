@@ -12,7 +12,7 @@ const History = ({ setTransactionId, setLocation }) => {
   useEffect(() => {
     axios({
       method: "get",
-      url: `${baseURL}/wallets/${localStorage.getItem('loggedID')}/transactions`,
+      url: `${baseURL}/wallets/${localStorage.getItem('stockAppLoggedID')}/transactions`,
       headers: token,
     }).then((res) => {
       setHistory(res.data);
